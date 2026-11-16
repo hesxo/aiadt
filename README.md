@@ -1,8 +1,8 @@
-# AIADT Waste Material Optimization — Web
+# TailorCut (AIADT)
 
-Apple-inspired marketing site for the **AIADT Waste Material Optimization System** presentation, built with **Next.js 16**, **React 19**, and **Tailwind CSS 4**.
+Functional demo app for **waste-smart tailoring**: layout planner, inventory, scraps, orders, and admin reports. Data persists in **localStorage** (single-user demo).
 
-## Run locally
+## Run
 
 ```bash
 npm install
@@ -11,17 +11,17 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+- Sign in as **Tailor** or **Admin** (no password).
+- **Patterns** → Plan layout → **Confirm cut** updates stock, scraps, orders, and cut history.
+- **Admin only:** `/reports` and **Copy CSV**.
+
+Course deck: [http://localhost:3000/presentation](http://localhost:3000/presentation)
+
+Presentation script: [http://localhost:3000/script](http://localhost:3000/script)
+
 ## Build
 
 ```bash
 npm run build
 npm start
 ```
-
-## Structure
-
-- `src/app/` — App Router layout and home page
-- `src/components/` — Section components (hero, features, architecture, etc.)
-- `public/images/` — Assets from the PowerPoint deck
-
-Content mirrors `AIADT-Waste-Optimization.pptx` (introduction through conclusion).

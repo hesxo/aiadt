@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AIADT · Waste Material Optimization",
+  title: "TailorCut · Waste-smart tailoring",
   description:
-    "AIADT Waste Material Optimization System — reduce fabric waste, track scraps, and save costs for small-scale tailors.",
+    "TailorCut — layout planning, inventory, scrap reuse, orders, and admin reports for small tailor shops.",
 };
 
 export default function RootLayout({

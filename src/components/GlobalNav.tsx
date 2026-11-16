@@ -3,12 +3,14 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
+const base = "/presentation";
+
 const links = [
-  { href: "#introduction", label: "Overview" },
-  { href: "#problem", label: "Problem" },
-  { href: "#features", label: "Features" },
-  { href: "#architecture", label: "Architecture" },
-  { href: "#stack", label: "Technology" },
+  { href: `${base}#introduction`, label: "Overview" },
+  { href: `${base}#problem`, label: "Problem" },
+  { href: `${base}#features`, label: "Features" },
+  { href: `${base}#architecture`, label: "Architecture" },
+  { href: `${base}#stack`, label: "Technology" },
 ];
 
 export function GlobalNav() {
@@ -43,7 +45,7 @@ export function GlobalNav() {
           aria-label="Primary"
         >
           <Link
-            href="#top"
+            href={base}
             className="text-[17px] font-semibold tracking-tight text-[var(--text)]"
             onClick={() => setMenuOpen(false)}
           >
@@ -64,10 +66,16 @@ export function GlobalNav() {
           </ul>
 
           <Link
-            href="#conclusion"
+            href="/script"
+            className="hidden text-xs text-[var(--text-secondary)] transition hover:text-[var(--text)] md:inline-block"
+          >
+            Script
+          </Link>
+          <Link
+            href="/"
             className="hidden rounded-full bg-[var(--accent)] px-3.5 py-1 text-xs font-medium text-white transition hover:brightness-110 md:inline-block"
           >
-            Get started
+            Open app
           </Link>
 
           <button
@@ -109,11 +117,11 @@ export function GlobalNav() {
             </Link>
           ))}
           <Link
-            href="#conclusion"
+            href="/"
             className="mt-4 inline-flex w-fit rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-medium text-white"
             onClick={() => setMenuOpen(false)}
           >
-            Get started
+            Open app
           </Link>
         </div>
       </div>

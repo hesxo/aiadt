@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { SystemContextDiagram } from "./SystemContextDiagram";
 
 const layers = [
   {
@@ -19,8 +19,6 @@ const layers = [
   },
 ];
 
-const flow = ["Tailor", "Web App", "REST API", "Database", "Reports & layouts"];
-
 export function Architecture() {
   return (
     <section id="architecture" className="section-pad bg-white">
@@ -37,53 +35,31 @@ export function Architecture() {
           </div>
         </Reveal>
 
-        <div className="mt-16 space-y-4">
+        <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {layers.map((layer) => (
             <Reveal key={layer.num}>
-              <article className="flex flex-col gap-4 rounded-3xl bg-[var(--bg-gray)] p-8 sm:flex-row sm:items-center sm:gap-8">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[var(--text)] text-lg font-semibold text-white">
+              <article className="flex h-full flex-col rounded-3xl bg-[var(--bg-gray)] p-6">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--text)] text-sm font-semibold text-white">
                   {layer.num}
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold">{layer.title}</h3>
-                  <p className="mt-1 text-[var(--text-secondary)]">{layer.desc}</p>
-                </div>
+                <h3 className="mt-4 text-lg font-semibold">{layer.title}</h3>
+                <p className="mt-2 flex-1 text-sm text-[var(--text-secondary)]">{layer.desc}</p>
               </article>
             </Reveal>
           ))}
         </div>
 
-        <Reveal className="mt-14">
-          <Image
-            src="/images/image-8-1.jpeg"
-            alt="System context and data flow diagram"
-            width={1100}
-            height={620}
-            className="mx-auto w-full max-w-4xl rounded-2xl object-contain shadow-lg ring-1 ring-[var(--border)]"
-          />
-          <div
-            className="mt-8 flex flex-wrap items-center justify-center gap-3 rounded-3xl border border-[var(--border)] bg-[var(--bg)] p-8"
-            aria-label="System data flow overview"
-          >
-            {flow.map((node, i) => (
-              <span key={node} className="flex items-center gap-3">
-                {i > 0 && (
-                  <span className="text-[var(--text-tertiary)]" aria-hidden>
-                    {i === flow.length - 1 ? "↺" : "→"}
-                  </span>
-                )}
-                <span
-                  className={`rounded-full px-4 py-2 text-sm font-medium ${
-                    node === "Web App" || node === "Reports & layouts"
-                      ? "bg-[var(--accent)] text-white"
-                      : "bg-white ring-1 ring-[var(--border)]"
-                  }`}
-                >
-                  {node}
-                </span>
-              </span>
-            ))}
+        <Reveal className="mt-16">
+          <div className="mb-6 text-center">
+            <p className="eyebrow">System context & data flow</p>
+            <h3 className="mt-2 text-2xl font-semibold tracking-tight">
+              How tailors, admins, and cloud storage connect
+            </h3>
+            <p className="mx-auto mt-2 max-w-xl text-sm text-[var(--text-secondary)]">
+              Tap a role to highlight flows. The diagram auto-cycles—hover to pause.
+            </p>
           </div>
+          <SystemContextDiagram />
         </Reveal>
       </div>
     </section>

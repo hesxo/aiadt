@@ -64,3 +64,20 @@ body {
   color: var(--accent);
   opacity: 0.95;
 }
+
+@media print {
+  .presentation-script .script-line {
+    orphans: 3;
+    widows: 3;
+  }
+  header.sticky,
+  footer {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
